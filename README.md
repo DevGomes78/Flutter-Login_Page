@@ -1,5 +1,5 @@
 # Validação de Campos Utilizando Flutter.
- utilizado Form para validação.
+ Utilizado Form para validação.
  o Widget TextFormField foi componentizado para reaproveitar o codigo.
  criado o arquivo validação de classes para separar da pasta view.
 
