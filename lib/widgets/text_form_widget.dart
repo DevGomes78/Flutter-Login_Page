@@ -16,7 +16,7 @@ class TextFormWidget extends StatelessWidget {
     this.validator,
     this.controller,
     this.obscureText = false,
-        this.onChanged,
+    this.onChanged,
   });
 
   @override

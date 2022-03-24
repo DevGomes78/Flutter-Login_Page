@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 class ContainerWidget extends StatelessWidget {
   String? text;
+
   ContainerWidget({required this.text});
+
   @override
   Widget build(BuildContext context) {
     return Container(

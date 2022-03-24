@@ -12,14 +12,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ContainerWidget(text: 'Login'),
-            const SizedBox(height: 50),
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.only(left: 3, right: 3),
+      body: buildSingleChildScrollView(context),
+    );
+  }
+
+  buildSingleChildScrollView(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ContainerWidget(text: 'Login'),
+          const SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.grey[200],
@@ -36,10 +41,11 @@ class HomePage extends StatelessWidget {
                 validator: Validate().validateEmail,
               ),
             ),
-            const SizedBox(height: 10),
-            Container(
-              margin: EdgeInsets.only(left: 10, right: 10),
-              padding: EdgeInsets.only(left: 3, right: 3),
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.grey[200],
@@ -56,52 +62,53 @@ class HomePage extends StatelessWidget {
                 validator: Validate().validateSenha,
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 10, right: 20),
-              alignment: Alignment.centerRight,
-              child: InkWell(
-                child: Text('Esqueceu a Senha?'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Validation(),
-                    ),
-                  );
-                },
-              ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10, right: 20),
+            alignment: Alignment.centerRight,
+            child: InkWell(
+              child: Text('Esqueceu a Senha?'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Validation(),
+                  ),
+                );
+              },
             ),
-            SizedBox(height: 50),
-            ButtonWidget(text: 'Login',),
-            const SizedBox(height: 10),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Nao tem Cadastro?'),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Validation(),
-                        ),
-                      );
-                    },
-                    child: const Text(
-                      'Cadastrar Agora',
-                      style: TextStyle(
-                        color: Colors.green,
+          ),
+          SizedBox(height: 50),
+          ButtonWidget(
+            text: 'Login',
+          ),
+          const SizedBox(height: 10),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Nao tem Cadastro?'),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Validation(),
                       ),
+                    );
+                  },
+                  child: const Text(
+                    'Cadastrar Agora',
+                    style: TextStyle(
+                      color: Colors.green,
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
-
