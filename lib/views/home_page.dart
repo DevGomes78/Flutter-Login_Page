@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/utils/validate.dart';
 import 'package:flutter_validation/views/view_validation.dart';
+import 'package:flutter_validation/widgets/button_widget.dart';
+import 'package:flutter_validation/widgets/container_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,43 +15,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 250,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(90),
-                ),
-                color: Colors.green,
-                gradient: LinearGradient(
-                    colors: [(Colors.green), (Colors.black)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter),
-              ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      child: Image.asset('images/frog.png'),
-                      height: 150,
-                      width: 180,
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(right: 20, top: 20),
-                      alignment: Alignment.bottomRight,
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            ContainerWidget(text: 'Login'),
             const SizedBox(height: 50),
             Container(
               margin: EdgeInsets.only(left: 10, right: 10),
@@ -106,36 +72,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 58,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.green,
-                    gradient: const LinearGradient(
-                        colors: [(Colors.green), (Colors.black)],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter),
-                  ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
+            ButtonWidget(text: 'Login',),
+            const SizedBox(height: 10),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Nao tem Cadastro?'),
+                  const Text('Nao tem Cadastro?'),
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -154,10 +97,11 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
+
