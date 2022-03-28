@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/views/home_page.dart';
+import 'package:flutter_validation/views/splash.dart';
 
-void main() {
+void main() async {
+  //await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -14,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(brightness: Brightness.light),
-      home: const HomePage(),
+      home: const Splash(),
     );
   }
 }

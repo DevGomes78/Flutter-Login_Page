@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695147800366",
+    "project_id": "autenticar-app",
+    "storage_bucket": "autenticar-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695147800366:android:876dbf673d273e8e3efcbf",
+        "android_client_info": {
+          "package_name": "com.example.flutter_validation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695147800366-t1jut1sidpr1aid4idno3lng324dj5rq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWHKS8ePCb9qcSIZ5Bh5DmEuf0j0_6eKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695147800366-t1jut1sidpr1aid4idno3lng324dj5rq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

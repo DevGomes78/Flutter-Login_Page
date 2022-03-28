@@ -7,6 +7,7 @@ class TextFormWidget extends StatelessWidget {
   FormFieldValidator<String>? validator;
   TextEditingController? controller;
   bool obscureText;
+  ValueChanged<String>? onChanged;
 
   TextFormWidget(
     this.labelText,
@@ -15,6 +16,7 @@ class TextFormWidget extends StatelessWidget {
     this.validator,
     this.controller,
     this.obscureText = false,
+    this.onChanged,
   });
 
   @override
@@ -25,13 +27,14 @@ class TextFormWidget extends StatelessWidget {
         labelText: labelText,
         hintText: hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(50),
         ),
         prefixIcon: icon,
       ),
       validator: validator,
       controller: controller,
       obscureText: obscureText,
+      onChanged: onChanged,
     );
   }
 }

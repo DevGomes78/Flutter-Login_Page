@@ -2,7 +2,7 @@ class Validate{
   String? validateNome(String? value) {
     if (value!.isEmpty)  {
       return 'Campo em Branco';
-    } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value!)) {
+    } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
       return 'Somente Letras';
     } else if (value.trim().length < 4) {
       return 'Minimo 4 caracteres';
@@ -13,7 +13,7 @@ class Validate{
   String? validateSobreNome(String? value) {
     if (value!.isEmpty)  {
       return 'Campo em Branco';
-    } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value!)) {
+    } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
       return 'Somente Letras';
     } else if (value.trim().length < 3) {
       return 'Minimo 4 caracteres';
@@ -33,7 +33,7 @@ class Validate{
   String? validateEmail(String? value) {
     if (value!.isEmpty)  {
       return 'Campo em Branco';
-    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value!)) {
+    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
       return 'email Invalido';
     } else {
       return null;
@@ -43,8 +43,8 @@ class Validate{
   String? validateSenha(String? value) {
     if (value!.isEmpty) {
       return 'campo senha em Branco';
-    } else if (value.trim().length < 4) {
-      return 'Minimo 4 caracteres';
+    } else if (value.trim().length < 6) {
+      return 'Minimo 6 caracteres';
     } else {
       return null;
     }
