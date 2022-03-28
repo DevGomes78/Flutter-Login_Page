@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_validation/sing_up/sing_up_service.dart';
 import 'package:flutter_validation/utils/validate.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/container_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 
-class Validation extends StatelessWidget {
+class Cadastro extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
   TextEditingController nomeController = TextEditingController();
@@ -36,12 +37,12 @@ class Validation extends StatelessWidget {
                         'Nome',
                         'Digite o Nome',
                         const Icon(
-                          Icons.email,
+                          Icons.person_add,
                           color: Colors.green,
                         ),
-                        controller: emailController,
+                        controller: nomeController,
                         obscureText: false,
-                        validator: Validate().validateEmail,
+                        validator: Validate().validateNome,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -84,7 +85,21 @@ class Validation extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              ButtonWidget(text: 'Cadastrar'),
+              GestureDetector(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    SingUpService()
+                        .singUp(emailController.text,
+                        senhaController.text);
+                  }
+                   nomeController.clear();
+                    emailController.clear();
+                  senhaController.clear();
+                },
+                child: ButtonWidget(
+                  text: 'Cadastrar',
+                ),
+              ),
             ],
           ),
         ),

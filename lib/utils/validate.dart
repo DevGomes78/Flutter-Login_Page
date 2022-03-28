@@ -43,8 +43,8 @@ class Validate{
   String? validateSenha(String? value) {
     if (value!.isEmpty) {
       return 'campo senha em Branco';
-    } else if (value.trim().length < 4) {
-      return 'Minimo 4 caracteres';
+    } else if (value.trim().length < 6) {
+      return 'Minimo 6 caracteres';
     } else {
       return null;
     }

@@ -26,38 +26,24 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              color:  Colors.blue,
-              gradient: LinearGradient(
-                colors: [(Colors.green),(Colors.black)],
+        body: Stack(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            color: Colors.blue,
+            gradient: LinearGradient(
+                colors: [(Colors.green), (Colors.black)],
                 begin: Alignment.topCenter,
-                end: Alignment.bottomCenter
-              ),
-            ),
+                end: Alignment.bottomCenter),
           ),
-          Center(
-            child: Container(
-              height: 150,
-              child: Image.asset('images/frog.png'),
-            ),
+        ),
+        Center(
+          child: Container(
+            height: 150,
+            child: Image.asset('images/frog.png'),
           ),
-          const SizedBox(height: 20),
-          const Positioned(
-            left: 50,
-            right: 20,
-            top: 420,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
-              child: LinearProgressIndicator(
-                color: Colors.lightGreenAccent,
-              ),
-            ),
-          ),
-        ],
-      )
-    );
+        ),
+      ],
+    ));
   }
 }
