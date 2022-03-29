@@ -1,8 +1,8 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/sing_up/login_singup.dart';
-import 'package:flutter_validation/sing_up/sing_up_service.dart';
 import 'package:flutter_validation/utils/validate.dart';
-import 'package:flutter_validation/views/bem_vindo.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/container_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
@@ -10,10 +10,10 @@ import 'cadastro.dart';
 
 class Login extends StatelessWidget {
   TextEditingController emailController =
-      TextEditingController(text: 'amilson@gmail.com');
-  TextEditingController senhaController = TextEditingController(text: '123456');
+  TextEditingController();
+  TextEditingController senhaController =
+  TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  bool? ok;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +84,7 @@ class Login extends StatelessWidget {
               const SizedBox(height: 50),
               InkWell(
                 onTap: () {
-                  _doLogin();
+                  _doLogin(context);
                 },
                 child: ButtonWidget(
                   text: 'Login',
@@ -121,13 +121,14 @@ class Login extends StatelessWidget {
       ),
     );
   }
-  _doLogin()async{
+
+  void _doLogin(context) async {
     if (_formKey.currentState!.validate()) {
       LoginService().login(
-           emailController.text,
-          senhaController.text);
-    }else{
-      print('invalido');
+        context,
+        emailController.text,
+        senhaController.text,
+      );
     }
   }
 }
