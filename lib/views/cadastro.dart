@@ -89,7 +89,7 @@ class Cadastro extends StatelessWidget {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     SingUpService()
-                        .singUp(emailController.text,
+                        .singUp(context,emailController.text,
                         senhaController.text);
                   }
                    nomeController.clear();
