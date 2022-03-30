@@ -13,7 +13,6 @@ class ContainerWidget extends StatelessWidget {
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(90),
         ),
-        color: Colors.green,
         gradient: LinearGradient(
             colors: [(Colors.green), (Colors.black)],
             begin: Alignment.topCenter,
@@ -34,7 +33,7 @@ class ContainerWidget extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Text(
                 text!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   color: Colors.white,
                 ),
