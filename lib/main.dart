@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_validation/constants/routes.dart';
+import 'package:flutter_validation/views/bem_vindo.dart';
+import 'package:flutter_validation/views/cadastro.dart';
 import 'package:flutter_validation/views/home_page.dart';
 import 'package:flutter_validation/views/splash.dart';
 
@@ -18,6 +21,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(brightness: Brightness.light),
       home: const Splash(),
+      routes: {
+        Routes.bemVindo:(context)=> BemVindo(),
+        Routes.cadastro:(context)=> Cadastro(),
+      },
     );
   }
 }

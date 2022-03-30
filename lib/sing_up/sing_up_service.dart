@@ -16,13 +16,13 @@ class SingUpService {
     );
     if(response.statusCode==200){
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Login Cadstrado com sucesso! '),
+        const SnackBar(
+          content: Text('Login Cadastrado com sucesso! '),
         ),
       );
     }else{
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Email ou senha invalidos! '),
         ),
       );
