@@ -9,7 +9,7 @@ class BemVindo extends StatelessWidget {
       appBar: AppBar(
         title: Text('Bem vindo'),
       ),
-      body:  Center(
+      body:  const Center(
         child:  Text('bem vindo'),
       ),
     );
