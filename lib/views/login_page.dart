@@ -115,7 +115,8 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 10),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, RoutesPage.cadastro);
+                  Navigator.pushReplacementNamed(
+                      context, RoutesPage.cadastro);
                 },
                 child: Textwidget(
                   cadastro: 'Nao tem Cadastro?  ',
