@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_validation/constants/routes_api.dart';
 import 'package:flutter_validation/sing_up/sing_up_service.dart';
 import 'package:flutter_validation/utils/validate.dart';
+import 'package:flutter_validation/views/login_page.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/container_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
+import 'package:flutter_validation/widgets/text_widget.dart';
 
-class Cadastro extends StatelessWidget {
+class Cadastro extends StatefulWidget {
+  @override
+  State<Cadastro> createState() => _CadastroState();
+}
+
+class _CadastroState extends State<Cadastro> {
+  bool _obscureText = true;
   TextEditingController emailController = TextEditingController();
+
   TextEditingController senhaController = TextEditingController();
+
   TextEditingController nomeController = TextEditingController();
+
   TextEditingController sobreNomeController = TextEditingController();
+
   TextEditingController phoneController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
@@ -76,8 +89,18 @@ class Cadastro extends StatelessWidget {
                           Icons.vpn_key,
                           color: Colors.green,
                         ),
+                        sulfixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                          child: Icon(_obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                        ),
                         controller: senhaController,
-                        obscureText: true,
+                        obscureText: _obscureText,
                         validator: Validate().validateSenha,
                       ),
                     ),
@@ -85,15 +108,27 @@ class Cadastro extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.loginPage);
+                },
+                child: Textwidget(
+                  cadastro: 'Já é Cadastrado? ',
+                  login: 'Fazer Login',
+                ),
+              ),
+              const SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
-                    SingUpService()
-                        .singUp(context,emailController.text,
-                        senhaController.text);
+                    SingUpService().singUp(
+                      context,
+                      emailController.text,
+                      senhaController.text,
+                    );
                   }
-                   nomeController.clear();
-                    emailController.clear();
+                  nomeController.clear();
+                  emailController.clear();
                   senhaController.clear();
                 },
                 child: ButtonWidget(
