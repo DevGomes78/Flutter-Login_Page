@@ -35,14 +35,14 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             ),
           ),
           const Text(
-            'Amilson Gomes',
+            'amilson',
             style: TextStyle(
               color: Colors.white,
               fontSize: 22,
             ),
           ),
           const Text(
-            'Amilson@gmail.com',
+            'gomes@gmail.com',
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
