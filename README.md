@@ -5,6 +5,8 @@
 
 ## Mais sobre o App:
 + Componentização dos Widgets TextformFiels,container,Drawer e Text para reaproveitar em outros arquivos.
++ Validação do formulario de Cadastro.
++ arquivo de rota e constants.
 + Splash screen para abertura do App.
 + feito no padrao MVC para organização do codigo.
 
