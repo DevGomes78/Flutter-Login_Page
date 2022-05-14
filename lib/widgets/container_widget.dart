@@ -8,7 +8,7 @@ class ContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 200,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(90),
@@ -24,12 +24,7 @@ class ContainerWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              child: Image.asset('images/frog.png'),
-              height: 150,
-              width: 180,
-            ),
-            Container(
-              margin: const EdgeInsets.only(right: 20, top: 20),
+              margin: const EdgeInsets.only(right: 20, top: 90),
               alignment: Alignment.bottomRight,
               child: Text(
                 text!,

@@ -1,5 +1,4 @@
-import 'package:flutter_validation/views/cadastro.dart';
-import 'package:flutter_validation/views/login_page.dart';
+
 
 class Routes {
   static const singUp =
@@ -13,6 +12,5 @@ class Routes {
   static const cadastro = 'Cadastro';
 
   static const loginPage = 'Login';
-
 
 }
