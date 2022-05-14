@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/constants/routes_api.dart';
+import 'package:flutter_validation/constants/service_constants.dart';
 import 'package:flutter_validation/sing_up/sing_up_service.dart';
 import 'package:flutter_validation/utils/validate.dart';
-import 'package:flutter_validation/views/login_page.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
-import 'package:flutter_validation/widgets/container_widget.dart';
+import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
 
@@ -21,9 +21,6 @@ class _CadastroState extends State<Cadastro> {
 
   TextEditingController nomeController = TextEditingController();
 
-  TextEditingController sobreNomeController = TextEditingController();
-
-  TextEditingController phoneController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -35,75 +32,18 @@ class _CadastroState extends State<Cadastro> {
           key: _formKey,
           child: Column(
             children: [
-              ContainerWidget(text: 'Cadastrar'),
+              //  ContainerWidget(text: 'Cadastrar'),
+              _CustonClipper(),
               const SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.grey[200],
-                      ),
-                      child: TextFormWidget(
-                        'Nome',
-                        'Digite o Nome',
-                        const Icon(
-                          Icons.person_add,
-                          color: Colors.green,
-                        ),
-                        controller: nomeController,
-                        obscureText: false,
-                        validator: Validate().validateNome,
-                      ),
-                    ),
+                    _mountAreaNome(),
                     const SizedBox(height: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.grey[200],
-                      ),
-                      child: TextFormWidget(
-                        'Email',
-                        'digite email',
-                        const Icon(
-                          Icons.email,
-                          color: Colors.green,
-                        ),
-                        controller: emailController,
-                        obscureText: false,
-                        validator: Validate().validateEmail,
-                      ),
-                    ),
+                    _mountAreaEmail(),
                     const SizedBox(height: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.grey[200],
-                      ),
-                      child: TextFormWidget(
-                        'Senha',
-                        'digite a senha',
-                        const Icon(
-                          Icons.vpn_key,
-                          color: Colors.green,
-                        ),
-                        sulfixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
-                          child: Icon(_obscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                        ),
-                        controller: senhaController,
-                        obscureText: _obscureText,
-                        validator: Validate().validateSenha,
-                      ),
-                    ),
+                    _MountAreaPassword(),
                   ],
                 ),
               ),
@@ -113,8 +53,8 @@ class _CadastroState extends State<Cadastro> {
                   Navigator.pushNamed(context, Routes.loginPage);
                 },
                 child: Textwidget(
-                  cadastro: 'Já é Cadastrado? ',
-                  login: 'Fazer Login',
+                  cadastro: ServiceConstants.MountAreaRegisterLogin,
+                  login: ServiceConstants.MountAreaLoginName,
                 ),
               ),
               const SizedBox(height: 30),
@@ -132,13 +72,101 @@ class _CadastroState extends State<Cadastro> {
                   senhaController.clear();
                 },
                 child: ButtonWidget(
-                  text: 'Cadastrar',
+                  text: ServiceConstants.MountAreaRegister,
                 ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  _MountAreaPassword() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        ServiceConstants.MountAreaLogin,
+        ServiceConstants.MountAreaDigiteLogin,
+        const Icon(
+          Icons.vpn_key,
+          color: Colors.green,
+        ),
+        sulfixIcon: GestureDetector(
+          onTap: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
+          child: Icon(
+            _obscureText ? Icons.visibility : Icons.visibility_off,
+          ),
+        ),
+        controller: senhaController,
+        obscureText: _obscureText,
+        validator: Validate().validateSenha,
+      ),
+    );
+  }
+
+  _mountAreaEmail() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        ServiceConstants.MountAreaEmail,
+        ServiceConstants.MountAreaDigiteEmail,
+        const Icon(
+          Icons.email,
+          color: Colors.green,
+        ),
+        controller: emailController,
+        obscureText: false,
+        validator: Validate().validateEmail,
+      ),
+    );
+  }
+
+  _mountAreaNome() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        ServiceConstants.MountAreaName,
+        ServiceConstants.MountAreaRegisterName,
+        const Icon(
+          Icons.person_add,
+          color: Colors.green,
+        ),
+        controller: nomeController,
+        obscureText: false,
+        validator: Validate().validateNome,
+      ),
+    );
+  }
+
+  _CustonClipper() {
+    return ClipPath(
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(90),
+          ),
+          gradient: LinearGradient(
+              colors: [(Colors.green), (Colors.black)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter),
+        ),
+        height: 180,
+      ),
+      clipper: MycustonClipper(),
     );
   }
 }

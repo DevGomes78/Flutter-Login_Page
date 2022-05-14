@@ -8,7 +8,6 @@ import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
 
-
 class Login extends StatefulWidget {
   @override
   State<Login> createState() => _LoginState();

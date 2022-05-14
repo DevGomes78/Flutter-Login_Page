@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/views/contacts.dart';
 import 'package:flutter_validation/views/dashboard.dart';
-import 'package:flutter_validation/widgets/container_widget.dart';
 import 'package:flutter_validation/widgets/my_drawer_header.dart';
-import 'package:flutter_validation/widgets/my_drawer_list.dart';
 
 class BemVindo extends StatefulWidget {
   const BemVindo({Key? key}) : super(key: key);
@@ -25,25 +23,7 @@ class _BemVindoState extends State<BemVindo> {
       container = Contacts();
     }
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 90,
-        title: Text('Bem Vindo'),
-        centerTitle: true,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(00),
-              ),
-              gradient: LinearGradient(
-                colors: [Colors.black, Colors.green],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-              )),
-        ),
-      ),
+      appBar: _CustonAppBar(),
       body: container,
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -60,7 +40,29 @@ class _BemVindoState extends State<BemVindo> {
     );
   }
 
-  Widget MyDrawerList() {
+  _CustonAppBar() {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      toolbarHeight: 90,
+      title: Text('Bem Vindo'),
+      centerTitle: true,
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(00),
+            ),
+            gradient: LinearGradient(
+              colors: [Colors.black, Colors.green],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+            )),
+      ),
+    );
+  }
+
+  MyDrawerList() {
     return Container(
       padding: EdgeInsets.only(top: 15),
       child: Column(
@@ -81,7 +83,7 @@ class _BemVindoState extends State<BemVindo> {
     );
   }
 
-  Widget MenuItem(int id, String title, IconData icon, bool selected) {
+  MenuItem(int id, String title, IconData icon, bool selected) {
     return Material(
       color: selected ? Colors.grey[300] : Colors.transparent,
       child: InkWell(
