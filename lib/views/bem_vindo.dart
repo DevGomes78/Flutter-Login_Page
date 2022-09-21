@@ -106,7 +106,7 @@ class _BemVindoState extends State<BemVindo> {
           });
         },
         child: Padding(
-          padding: EdgeInsets.all(15),
+          padding: const EdgeInsets.all(15),
           child: Row(
             children: [
               Expanded(
