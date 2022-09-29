@@ -32,12 +32,12 @@ class _LoginState extends State<Login> {
             children: [
               // ContainerWidget(text: 'Login'),
               _CustonClipper(),
-              const SizedBox(height: 100),
+              const SizedBox(height: 70),
               _MounthAreaEmail(),
               const SizedBox(height: 10),
               _MounthAreaLogin(),
               _MounthAreaForgtPassword(context),
-              const SizedBox(height: 50),
+              const SizedBox(height: 40),
               InkWell(
                 onTap: () {
                   _doLogin(context);
@@ -59,6 +59,7 @@ class _LoginState extends State<Login> {
                   login: 'Cadastrar',
                 ),
               ),
+              const SizedBox(height: 10),
             ],
           ),
         ),

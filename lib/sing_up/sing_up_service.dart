@@ -4,11 +4,12 @@ import 'package:flutter_validation/constants/routes_api.dart';
 import 'package:http/http.dart' as http;
 
 class SingUpService {
-  singUp(context,String email, String password) async {
+  singUp(context,String name ,String email, String password) async {
     http.Response response = await http.post(
       Uri.parse(Routes.singUp),
       body: jsonEncode(
         {
+          'name': name,
           'email': email,
           'password': password,
         },

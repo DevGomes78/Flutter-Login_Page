@@ -32,7 +32,6 @@ class _CadastroState extends State<Cadastro> {
           key: _formKey,
           child: Column(
             children: [
-              //  ContainerWidget(text: 'Cadastrar'),
               _CustonClipper(),
               const SizedBox(height: 50),
               Padding(
@@ -63,6 +62,7 @@ class _CadastroState extends State<Cadastro> {
                   if (_formKey.currentState!.validate()) {
                     SingUpService().singUp(
                       context,
+                      nomeController.text,
                       emailController.text,
                       senhaController.text,
                     );
