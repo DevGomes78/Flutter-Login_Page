@@ -78,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       },
       child: ButtonWidget(
-        text: StringConstants.MountAreaRegister,
+        text: StringConstants.register,
       ),
     );
   }
@@ -107,8 +107,8 @@ _textLogin(BuildContext context) {
       Navigator.pushNamed(context, RoutesPage.loginPage);
     },
     child: Textwidget(
-      cadastro: StringConstants.MountAreaRegisterLogin,
-      login: StringConstants.MountAreaLoginName,
+      cadastro: StringConstants.registerLogin,
+      login: StringConstants.loginName,
     ),
   );
 }
@@ -120,8 +120,8 @@ _nameField() {
       color: Colors.grey[200],
     ),
     child: TextFormWidget(
-      StringConstants.MountAreaName,
-      StringConstants.MountAreaRegisterName,
+      StringConstants.name,
+      StringConstants.registerName,
       const Icon(
         Icons.person_add,
         color: Colors.green,
@@ -160,8 +160,8 @@ _mailField() {
       color: Colors.grey[200],
     ),
     child: TextFormWidget(
-      StringConstants.MountAreaEmail,
-      StringConstants.MountAreaDigiteEmail,
+      StringConstants.email,
+      StringConstants.digiteEmail,
       const Icon(
         Icons.email,
         color: Colors.green,
