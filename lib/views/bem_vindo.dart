@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/views/contacts.dart';
-import 'package:flutter_validation/views/dashboard.dart';
 import 'package:flutter_validation/widgets/my_drawer_header.dart';
 
 class BemVindo extends StatefulWidget {
@@ -11,17 +9,11 @@ class BemVindo extends StatefulWidget {
 }
 
 class _BemVindoState extends State<BemVindo> {
-  var currentPage = DrawerSections.dashBoard;
 
   @override
   Widget build(BuildContext context) {
     var container;
 
-    if (currentPage == DrawerSections.dashBoard) {
-      container = DashBoard();
-    } else if (currentPage == DrawerSections.contacts) {
-      container = Contacts();
-    }
     return Scaffold(
       appBar: _CustonAppBar(),
       body: container,
@@ -31,7 +23,6 @@ class _BemVindoState extends State<BemVindo> {
             child: Column(
               children: [
                 MyHeaderDrawer(),
-                MyDrawerList(),
               ],
             ),
           ),
@@ -61,82 +52,4 @@ class _BemVindoState extends State<BemVindo> {
       ),
     );
   }
-
-  MyDrawerList() {
-    return Container(
-      padding: EdgeInsets.only(top: 15),
-      child: Column(
-        children: [
-          MenuItem(1, 'DashBoard', Icons.dashboard_outlined,
-              currentPage == DrawerSections.dashBoard ? true : false),
-          MenuItem(2, 'Contacts', Icons.people_alt_outlined,
-              currentPage == DrawerSections.contacts ? true : false),
-          MenuItem(3, 'Events', Icons.event,
-              currentPage == DrawerSections.events ? true : false),
-          Divider(),
-          MenuItem(4, 'Notes', Icons.notes,
-              currentPage == DrawerSections.notes ? true : false),
-          MenuItem(5, 'Settings', Icons.settings_outlined,
-              currentPage == DrawerSections.settings ? true : false),
-        ],
-      ),
-    );
-  }
-
-  MenuItem(int id, String title, IconData icon, bool selected) {
-    return Material(
-      color: selected ? Colors.grey[300] : Colors.transparent,
-      child: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-          setState(() {
-            if (id == 1) {
-              currentPage = DrawerSections.dashBoard;
-            } else if (id == 2) {
-              currentPage = DrawerSections.contacts;
-            } else if (id == 3) {
-              currentPage = DrawerSections.events;
-            } else if (id == 4) {
-              currentPage = DrawerSections.notes;
-            } else if (id == 5) {
-              currentPage = DrawerSections.settings;
-            } else if (id == 6) {
-              currentPage = DrawerSections.notifications;
-            }
-          });
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Row(
-            children: [
-              Expanded(
-                child: Icon(
-                  icon,
-                  size: 20,
-                  color: Colors.black,
-                ),
-              ),
-              Expanded(
-                  child: Text(
-                title,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                ),
-              )),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-enum DrawerSections {
-  dashBoard,
-  contacts,
-  events,
-  notes,
-  settings,
-  notifications,
 }

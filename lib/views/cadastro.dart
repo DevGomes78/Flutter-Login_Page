@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/routes_api.dart';
-import 'package:flutter_validation/constants/service_constants.dart';
+import 'package:flutter_validation/constants/string_constants/string_constants.dart';
 import 'package:flutter_validation/sing_up/sing_up_service.dart';
 import 'package:flutter_validation/utils/validate.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
+
+import '../routes/routes.dart';
 
 class Cadastro extends StatefulWidget {
   @override
@@ -49,11 +50,11 @@ class _CadastroState extends State<Cadastro> {
               const SizedBox(height: 10),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, Routes.loginPage);
+                  Navigator.pushNamed(context, RoutesPage.loginPage);
                 },
                 child: Textwidget(
-                  cadastro: ServiceConstants.MountAreaRegisterLogin,
-                  login: ServiceConstants.MountAreaLoginName,
+                  cadastro: StringConstants.MountAreaRegisterLogin,
+                  login: StringConstants.MountAreaLoginName,
                 ),
               ),
               const SizedBox(height: 30),
@@ -72,7 +73,7 @@ class _CadastroState extends State<Cadastro> {
                   senhaController.clear();
                 },
                 child: ButtonWidget(
-                  text: ServiceConstants.MountAreaRegister,
+                  text: StringConstants.MountAreaRegister,
                 ),
               ),
             ],
@@ -89,8 +90,8 @@ class _CadastroState extends State<Cadastro> {
         color: Colors.grey[200],
       ),
       child: TextFormWidget(
-        ServiceConstants.MountAreaLogin,
-        ServiceConstants.MountAreaDigiteLogin,
+        StringConstants.MountAreaLogin,
+        StringConstants.MountAreaDigiteLogin,
         const Icon(
           Icons.vpn_key,
           color: Colors.green,
@@ -119,8 +120,8 @@ class _CadastroState extends State<Cadastro> {
         color: Colors.grey[200],
       ),
       child: TextFormWidget(
-        ServiceConstants.MountAreaEmail,
-        ServiceConstants.MountAreaDigiteEmail,
+        StringConstants.MountAreaEmail,
+        StringConstants.MountAreaDigiteEmail,
         const Icon(
           Icons.email,
           color: Colors.green,
@@ -139,8 +140,8 @@ class _CadastroState extends State<Cadastro> {
         color: Colors.grey[200],
       ),
       child: TextFormWidget(
-        ServiceConstants.MountAreaName,
-        ServiceConstants.MountAreaRegisterName,
+        StringConstants.MountAreaName,
+        StringConstants.MountAreaRegisterName,
         const Icon(
           Icons.person_add,
           color: Colors.green,

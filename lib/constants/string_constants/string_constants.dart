@@ -1,4 +1,4 @@
-class ServiceConstants{
+class StringConstants{
 
   static const MountAreaEmail = 'Email:';
   static const MountAreaDigiteEmail = 'Digite o email:';

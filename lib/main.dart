@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/routes_api.dart';
+import 'package:flutter_validation/routes/routes.dart';
 import 'package:flutter_validation/views/bem_vindo.dart';
 import 'package:flutter_validation/views/cadastro.dart';
 import 'package:flutter_validation/views/login_page.dart';
@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(brightness: Brightness.light),
       home: const Splash(),
       routes: {
-        Routes.bemVindo: (context) => BemVindo(),
-        Routes.cadastro: (context) => Cadastro(),
-        Routes.loginPage: (context) => Login(),
+        RoutesPage.bemVindo: (context) => BemVindo(),
+        RoutesPage.cadastro: (context) => Cadastro(),
+        RoutesPage.loginPage: (context) => Login(),
       },
     );
   }

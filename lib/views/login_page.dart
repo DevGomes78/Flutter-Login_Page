@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/routes_api.dart';
 import 'package:flutter_validation/routes/routes.dart';
 import 'package:flutter_validation/sing_up/login_singup.dart';
 import 'package:flutter_validation/utils/validate.dart';
@@ -97,7 +96,7 @@ class _LoginState extends State<Login> {
           ),
         ),
         onTap: () {
-          Navigator.pushNamed(context, Routes.cadastro);
+          Navigator.pushNamed(context, RoutesPage.cadastro);
         },
       ),
     );

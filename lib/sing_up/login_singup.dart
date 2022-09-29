@@ -1,14 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/routes_api.dart';
+import 'package:flutter_validation/routes/routes.dart';
 import 'package:http/http.dart' as http;
+
+import '../constants/service_constants/service_constants.dart';
+
+
 
 class LoginService {
   login(context, String email, String password) async {
     if (email.isNotEmpty && password.isNotEmpty) {
       http.Response response = await http.post(
-        Uri.parse(Routes.login),
+        Uri.parse(ServiceConstants.login),
         body: jsonEncode(
           {
             'email': email,
@@ -17,7 +21,7 @@ class LoginService {
         ),
       );
       if (response.statusCode == 200) {
-        Navigator.pushNamed(context, Routes.bemVindo);
+        Navigator.pushNamed(context, RoutesPage.bemVindo);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -27,5 +31,4 @@ class LoginService {
       }
     }
   }
-
 }
