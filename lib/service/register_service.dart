@@ -5,12 +5,13 @@ import '../constants/service_constants/service_constants.dart';
 
 
 class RegisterLoginService {
-  singUp(context,String name ,String email, String password) async {
+  singUp(context,String name ,String lastname,String email, String password) async {
     http.Response response = await http.post(
       Uri.parse(ServiceConstants.singUp),
       body: jsonEncode(
         {
           'name': name,
+          'lastName': lastname,
           'email': email,
           'password': password,
         },
