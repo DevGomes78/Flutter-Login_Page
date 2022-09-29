@@ -2,6 +2,7 @@ class StringConstants{
 
   static const email = 'Email:';
   static const digiteEmail = 'Digite o email:';
+  static const login = ' login';
 
   static const password = ' Senha';
   static const registerPassword = 'Digite a Senha:';
