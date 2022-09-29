@@ -15,12 +15,14 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool _obscureText = true;
-  TextEditingController emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
 
-  TextEditingController senhaController = TextEditingController();
+  final TextEditingController _mailController = TextEditingController();
 
-  TextEditingController nomeController = TextEditingController();
-
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -38,43 +40,22 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    _mountAreaNome(),
+                    _areaName(),
                     const SizedBox(height: 10),
-                    _mountAreaEmail(),
+                    _areaLastName(),
                     const SizedBox(height: 10),
-                    _MountAreaPassword(),
+                    _areaMail(),
+                    const SizedBox(height: 10),
+                    _areaPassword(),
+                    const SizedBox(height: 10),
+                    _areaConfirmPassword(),
                   ],
                 ),
               ),
               const SizedBox(height: 10),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesPage.loginPage);
-                },
-                child: Textwidget(
-                  cadastro: StringConstants.MountAreaRegisterLogin,
-                  login: StringConstants.MountAreaLoginName,
-                ),
-              ),
+              _textLogin(context),
               const SizedBox(height: 30),
-              GestureDetector(
-                onTap: () {
-                  if (_formKey.currentState!.validate()) {
-                    SingUpService().singUp(
-                      context,
-                      nomeController.text,
-                      emailController.text,
-                      senhaController.text,
-                    );
-                  }
-                  nomeController.clear();
-                  emailController.clear();
-                  senhaController.clear();
-                },
-                child: ButtonWidget(
-                  text: StringConstants.MountAreaRegister,
-                ),
-              ),
+              _btnRegisterLogin(context),
             ],
           ),
         ),
@@ -82,15 +63,108 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  _MountAreaPassword() {
+  _btnRegisterLogin(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (_formKey.currentState!.validate()) {
+          RegisterLoginService().singUp(
+            context,
+            _nameController.text,
+            _mailController.text,
+            _passwordController.text,
+          );
+        }
+        _nameController.clear();
+        _mailController.clear();
+        _passwordController.clear();
+      },
+      child: ButtonWidget(
+        text: StringConstants.MountAreaRegister,
+      ),
+    );
+  }
+
+  _textLogin(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, RoutesPage.loginPage);
+      },
+      child: Textwidget(
+        cadastro: StringConstants.MountAreaRegisterLogin,
+        login: StringConstants.MountAreaLoginName,
+      ),
+    );
+  }
+
+  _areaName() {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: Colors.grey[200],
       ),
       child: TextFormWidget(
-        StringConstants.MountAreaLogin,
-        StringConstants.MountAreaDigiteLogin,
+        StringConstants.MountAreaName,
+        StringConstants.MountAreaRegisterName,
+        const Icon(
+          Icons.person_add,
+          color: Colors.green,
+        ),
+        controller: _nameController,
+        obscureText: false,
+        validator: Validate().validateNome,
+      ),
+    );
+  }
+
+  _areaLastName() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        StringConstants.lastName,
+        StringConstants.registerLastName,
+        const Icon(
+          Icons.person_add,
+          color: Colors.green,
+        ),
+        controller: _lastNameController,
+        obscureText: false,
+        validator: Validate().validateNome,
+      ),
+    );
+  }
+
+  _areaMail() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        StringConstants.MountAreaEmail,
+        StringConstants.MountAreaDigiteEmail,
+        const Icon(
+          Icons.email,
+          color: Colors.green,
+        ),
+        controller: _mailController,
+        obscureText: false,
+        validator: Validate().validateEmail,
+      ),
+    );
+  }
+
+  _areaPassword() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
+      ),
+      child: TextFormWidget(
+        StringConstants.password,
+        StringConstants.registerPassword,
         const Icon(
           Icons.vpn_key,
           color: Colors.green,
@@ -105,49 +179,39 @@ class _RegisterPageState extends State<RegisterPage> {
             _obscureText ? Icons.visibility : Icons.visibility_off,
           ),
         ),
-        controller: senhaController,
+        controller: _passwordController,
         obscureText: _obscureText,
         validator: Validate().validateSenha,
       ),
     );
   }
 
-  _mountAreaEmail() {
+  _areaConfirmPassword() {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: Colors.grey[200],
       ),
       child: TextFormWidget(
-        StringConstants.MountAreaEmail,
-        StringConstants.MountAreaDigiteEmail,
+        StringConstants.password,
+        StringConstants.confirmPassword,
         const Icon(
-          Icons.email,
+          Icons.vpn_key,
           color: Colors.green,
         ),
-        controller: emailController,
-        obscureText: false,
-        validator: Validate().validateEmail,
-      ),
-    );
-  }
-
-  _mountAreaNome() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: Colors.grey[200],
-      ),
-      child: TextFormWidget(
-        StringConstants.MountAreaName,
-        StringConstants.MountAreaRegisterName,
-        const Icon(
-          Icons.person_add,
-          color: Colors.green,
+        sulfixIcon: GestureDetector(
+          onTap: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
+          child: Icon(
+            _obscureText ? Icons.visibility : Icons.visibility_off,
+          ),
         ),
-        controller: nomeController,
-        obscureText: false,
-        validator: Validate().validateNome,
+        controller: _confirmPasswordController,
+        obscureText: _obscureText,
+        validator: Validate().validateSenha,
       ),
     );
   }
