@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/constants/string_constants/string_constants.dart';
-import 'package:flutter_validation/utils/validate.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
+import '../controller/validate_fields.dart';
 import '../routes/routes.dart';
 import '../service/register_service.dart';
 
