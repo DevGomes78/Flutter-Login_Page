@@ -26,7 +26,7 @@ class SingUpService {
     }else{
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Email ou senha invalidos! '),
+          content: Text('Erro ao cadastrar! '),
         ),
       );
     }

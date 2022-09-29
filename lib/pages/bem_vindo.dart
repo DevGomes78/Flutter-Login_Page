@@ -9,29 +9,15 @@ class BemVindo extends StatefulWidget {
 }
 
 class _BemVindoState extends State<BemVindo> {
-
   @override
   Widget build(BuildContext context) {
-    var container;
-
     return Scaffold(
-      appBar: _CustonAppBar(),
-      body: container,
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                MyHeaderDrawer(),
-              ],
-            ),
-          ),
-        ),
-      ),
+      appBar: _custonAppBar(),
+      drawer: DrawerWidget(),
     );
   }
 
-  _CustonAppBar() {
+  _custonAppBar() {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,

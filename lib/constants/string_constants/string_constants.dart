@@ -16,6 +16,10 @@ class StringConstants{
   static const MountAreaRegisterLogin = 'Ja é cadastrado ?';
   static const MountAreaLoginName= 'Fazer Login';
 
+  static const settings = 'configuraçoes';
+  static const close = 'Sair';
+  static const myAcount= 'Minha Conta';
+
 
 
 

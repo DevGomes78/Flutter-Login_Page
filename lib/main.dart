@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_validation/pages/bem_vindo.dart';
+import 'package:flutter_validation/pages/cadastro.dart';
+import 'package:flutter_validation/pages/login_page.dart';
+import 'package:flutter_validation/pages/splash.dart';
 import 'package:flutter_validation/routes/routes.dart';
-import 'package:flutter_validation/views/bem_vindo.dart';
-import 'package:flutter_validation/views/cadastro.dart';
-import 'package:flutter_validation/views/login_page.dart';
-import 'package:flutter_validation/views/splash.dart';
 
 void main() async {
   runApp(const MyApp());

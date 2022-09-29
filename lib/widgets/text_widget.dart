@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/views/login_page.dart';
 
 class Textwidget extends StatelessWidget {
   String? cadastro;

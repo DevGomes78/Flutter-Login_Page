@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/views/bem_vindo.dart';
+
 
 import 'home_page.dart';
 
@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(
         context,
         MaterialPageRoute(

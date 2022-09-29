@@ -1,53 +1,56 @@
 import 'package:flutter/material.dart';
+import '../constants/string_constants/string_constants.dart';
+import '../pages/login_page.dart';
 
-class MyHeaderDrawer extends StatefulWidget {
-  const MyHeaderDrawer({Key? key}) : super(key: key);
+class DrawerWidget extends StatelessWidget {
+  String? name;
+  String? email;
 
-  @override
-  State<MyHeaderDrawer> createState() => _MyHeaderDrawerState();
-}
+  DrawerWidget({
+    Key? key,
+    this.email,
+    this.name,
+  }) : super(key: key);
 
-class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 200,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            colors: [(Colors.green), (Colors.black)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter),
-      ),
-      padding: EdgeInsets.only(top: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 10),
-            height: 70,
-            width: 90,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: AssetImage('images/User_Icon.png'),
-              ),
+    return Drawer(
+      backgroundColor: Colors.white,
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          const UserAccountsDrawerHeader(
+            accountEmail: Text('amilson@gmail.com'),
+            accountName: Text('amilson'),
+            currentAccountPicture: CircleAvatar(
+              backgroundColor: Colors.white,
             ),
           ),
-          const Text(
-            'amilson',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title:  const Text(StringConstants.myAcount),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
-          const Text(
-            'gomes@gmail.com',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
+          const Divider(color: Colors.grey),
+           const ListTile(
+            leading: Icon(Icons.add),
+            title: Text(StringConstants.settings),
           ),
+          const Divider(color: Colors.grey),
+          ListTile(
+            leading: const Icon(Icons.input_rounded),
+            title: const Text(StringConstants.close),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login(),
+                  ));
+            },
+          ),
+          const Divider(color: Colors.grey),
         ],
       ),
     );
