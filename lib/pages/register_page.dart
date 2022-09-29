@@ -210,7 +210,7 @@ _confirmPasswordField() {
       color: Colors.grey[200],
     ),
     child: TextFormWidget(
-      StringConstants.password,
+      StringConstants.confirmPassword,
       StringConstants.confirmPassword,
       const Icon(
         Icons.vpn_key,
