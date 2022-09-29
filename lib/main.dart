@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/pages/bem_vindo.dart';
-import 'package:flutter_validation/pages/cadastro.dart';
+import 'package:flutter_validation/pages/register_page.dart';
 import 'package:flutter_validation/pages/login_page.dart';
 import 'package:flutter_validation/pages/splash.dart';
 import 'package:flutter_validation/routes/routes.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: const Splash(),
       routes: {
         RoutesPage.bemVindo: (context) => BemVindo(),
-        RoutesPage.cadastro: (context) => Cadastro(),
+        RoutesPage.cadastro: (context) => RegisterPage(),
         RoutesPage.loginPage: (context) => Login(),
       },
     );

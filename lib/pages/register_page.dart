@@ -8,12 +8,12 @@ import '../controller/validate_fields.dart';
 import '../routes/routes.dart';
 import '../service/register_service.dart';
 
-class Cadastro extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  State<Cadastro> createState() => _CadastroState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _CadastroState extends State<Cadastro> {
+class _RegisterPageState extends State<RegisterPage> {
   bool _obscureText = true;
   TextEditingController emailController = TextEditingController();
 
