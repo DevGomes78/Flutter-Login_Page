@@ -1,12 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/routes/routes.dart';
+import 'package:flutter_validation/pages/bem_vindo.dart';
 import 'package:http/http.dart' as http;
-
 import '../constants/service_constants/service_constants.dart';
-
-
 
 
 class LoginService {
@@ -22,7 +18,10 @@ class LoginService {
         ),
       );
       if (response.statusCode == 200) {
-        Navigator.pushNamed(context, RoutesPage.bemVindo);
+       // Navigator.pushNamed(context, RoutesPage.bemVindo);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context)=>
+            BemVindo(email: email)));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(

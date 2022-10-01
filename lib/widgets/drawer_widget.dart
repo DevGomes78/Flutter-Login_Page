@@ -3,13 +3,13 @@ import '../constants/string_constants.dart';
 import '../pages/login_page.dart';
 
 class DrawerWidget extends StatelessWidget {
-  String? name;
-  String? email;
+
+  String email;
 
   DrawerWidget({
-    Key? key,
+    Key? key,required
     this.email,
-    this.name,
+
   }) : super(key: key);
 
   @override
@@ -19,10 +19,10 @@ class DrawerWidget extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const UserAccountsDrawerHeader(
-            accountEmail: Text('amilson@gmail.com'),
-            accountName: Text('amilson'),
-            currentAccountPicture: CircleAvatar(
+           UserAccountsDrawerHeader(
+            accountEmail: Text(email),
+            accountName: const Text('Bem Vindo!'),
+            currentAccountPicture: const CircleAvatar(
               backgroundColor: Colors.white,
             ),
           ),

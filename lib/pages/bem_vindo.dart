@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/widgets/my_drawer_header.dart';
+import 'package:flutter_validation/widgets/drawer_widget.dart';
 
 class BemVindo extends StatefulWidget {
-  const BemVindo({Key? key}) : super(key: key);
+ String ?nome;
+ String email;
+
+ BemVindo({required this.email});
 
   @override
   State<BemVindo> createState() => _BemVindoState();
@@ -13,7 +16,7 @@ class _BemVindoState extends State<BemVindo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _custonAppBar(),
-      drawer: DrawerWidget(),
+      drawer: DrawerWidget(email: widget.email),
     );
   }
 
@@ -22,7 +25,7 @@ class _BemVindoState extends State<BemVindo> {
       backgroundColor: Colors.white,
       elevation: 0,
       toolbarHeight: 90,
-      title: Text('Bem Vindo'),
+      title: Text('Bem vindo'),
       centerTitle: true,
       flexibleSpace: Container(
         decoration: const BoxDecoration(

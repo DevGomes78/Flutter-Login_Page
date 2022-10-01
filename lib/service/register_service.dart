@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 import '../constants/service_constants/service_constants.dart';
 
 class RegisterLoginService {
-  singUp(context,String name ,String lastname,String email, String password) async {
+  singUp(context, String name, String lastname, String email,
+      String password) async {
     http.Response response = await http.post(
       Uri.parse(ServiceConstants.singUp),
       body: jsonEncode(
@@ -16,13 +17,13 @@ class RegisterLoginService {
         },
       ),
     );
-    if(response.statusCode==200){
+    if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
-         const SnackBar(
+        const SnackBar(
           content: Text('Login Cadastrado com sucesso!'),
         ),
       );
-    }else{
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Erro ao cadastrar! '),
