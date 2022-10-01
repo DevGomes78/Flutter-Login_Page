@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/string_constants/string_constants.dart';
+import 'package:flutter_validation/constants/string_constants.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
-import '../constants/error_constants/error_constants.dart';
+import '../constants/error_constants.dart';
 import '../controller/validate_fields.dart';
 import '../routes/routes.dart';
 import '../service/register_service.dart';
@@ -128,7 +128,7 @@ _nameField() {
       ),
       controller: _nameController,
       obscureText: false,
-      validator: Validate().validateNome,
+      validator: Validate().validateLastName,
     ),
   );
 }
@@ -148,7 +148,7 @@ _lastNameField() {
       ),
       controller: _lastNameController,
       obscureText: false,
-      validator: Validate().validateNome,
+      validator: Validate().validateName,
     ),
   );
 }
@@ -198,7 +198,7 @@ _passwordField() {
       ),
       controller: _passwordController,
       obscureText: _obscureText,
-      validator: Validate().validateSenha,
+      validator: Validate().validatePassword,
     ),
   );
 }
@@ -228,7 +228,7 @@ _confirmPasswordField() {
       ),
       controller: _confirmPasswordController,
       obscureText: _obscureText,
-      validator: Validate().validateSenha,
+      validator: Validate().validatePassword,
     ),
   );
 }

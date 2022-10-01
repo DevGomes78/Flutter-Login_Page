@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_validation/constants/string_constants/string_constants.dart';
+import 'package:flutter_validation/constants/string_constants.dart';
 import 'package:flutter_validation/routes/routes.dart';
 import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
@@ -133,11 +133,13 @@ class _LoginState extends State<Login> {
                 _obscureText = !_obscureText;
               });
             },
-            child: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
+            child: Icon(
+              _obscureText ? Icons.visibility : Icons.visibility_off,
+            ),
           ),
           controller: senhaController,
           obscureText: _obscureText,
-          validator: Validate().validateSenha,
+          validator: Validate().validatePassword,
         ),
       ),
     );

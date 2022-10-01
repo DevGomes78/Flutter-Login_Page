@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/string_constants/string_constants.dart';
+import '../constants/string_constants.dart';
 import '../pages/login_page.dart';
 
 class DrawerWidget extends StatelessWidget {

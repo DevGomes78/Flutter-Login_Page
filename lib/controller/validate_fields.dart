@@ -1,5 +1,5 @@
 class Validate{
-  String? validateNome(String? value) {
+  String? validateName(String? value) {
     if (value!.isEmpty)  {
       return 'Campo em Branco';
     } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
@@ -10,7 +10,7 @@ class Validate{
       return null;
     }
   }
-  String? validateSobreNome(String? value) {
+  String? validateLastName(String? value) {
     if (value!.isEmpty)  {
       return 'Campo em Branco';
     } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
@@ -40,7 +40,7 @@ class Validate{
     }
   }
 
-  String? validateSenha(String? value) {
+  String? validatePassword(String? value) {
     if (value!.isEmpty) {
       return 'campo senha em Branco';
     } else if (value.trim().length < 6) {
