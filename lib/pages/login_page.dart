@@ -30,35 +30,16 @@ class _LoginState extends State<Login> {
           key: _formKey,
           child: Column(
             children: [
-              // ContainerWidget(text: 'Login'),
-              _CustonClipper(),
-              const SizedBox(height: 70),
-              _MounthAreaEmail(),
+              _custonClipper(),
+              const SizedBox(height: 60),
+              _emailField(),
               const SizedBox(height: 10),
-              _MounthAreaLogin(),
-              _MounthAreaForgtPassword(context),
+              _loginField(),
+              _forgtPasswordField(context),
               const SizedBox(height: 40),
-              InkWell(
-                onTap: () {
-                  _doLogin(context);
-                },
-                child: ButtonWidget(
-                  text: StringConstants.login,
-                ),
-              ),
+              btnLogin(context),
               const SizedBox(height: 10),
-              InkWell(
-                onTap: () {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    RoutesPage.cadastro,
-                  );
-                },
-                child: Textwidget(
-                  cadastro: 'Nao tem Cadastro?  ',
-                  login: 'Cadastrar',
-                ),
-              ),
+              textRegister(context),
               const SizedBox(height: 10),
             ],
           ),
@@ -67,7 +48,33 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _CustonClipper() {
+  textRegister(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushReplacementNamed(
+          context,
+          RoutesPage.cadastro,
+        );
+      },
+      child: Textwidget(
+        cadastro: StringConstants.notHaveRegistration,
+        login: StringConstants.register,
+      ),
+    );
+  }
+
+  btnLogin(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        _doLogin(context);
+      },
+      child: ButtonWidget(
+        text: StringConstants.login,
+      ),
+    );
+  }
+
+  _custonClipper() {
     return ClipPath(
       child: Container(
         decoration: const BoxDecoration(
@@ -85,13 +92,13 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _MounthAreaForgtPassword(BuildContext context) {
+  _forgtPasswordField(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 10, right: 20),
       alignment: Alignment.centerRight,
       child: InkWell(
         child: const Text(
-          'Esqueceu a Senha?',
+          StringConstants.forgoLogin,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
@@ -103,7 +110,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _MounthAreaLogin() {
+  _loginField() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -114,8 +121,8 @@ class _LoginState extends State<Login> {
           color: Colors.grey[200],
         ),
         child: TextFormWidget(
-          'Senha',
-          'digite a senha',
+          StringConstants.password,
+          StringConstants.registerPassword,
           const Icon(
             Icons.vpn_key,
             color: Colors.green,
@@ -136,7 +143,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  _MounthAreaEmail() {
+  _emailField() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,
@@ -147,8 +154,8 @@ class _LoginState extends State<Login> {
           color: Colors.grey[200],
         ),
         child: TextFormWidget(
-          'Email',
-          'digite email',
+          StringConstants.email,
+          StringConstants.typeEmail,
           const Icon(
             Icons.email,
             color: Colors.green,
@@ -161,7 +168,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  void _doLogin(context) async {
+  _doLogin(context) async {
     if (_formKey.currentState!.validate()) {
       LoginService().login(
         context,

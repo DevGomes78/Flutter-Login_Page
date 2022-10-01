@@ -1,7 +1,7 @@
 class StringConstants{
 
   static const email = 'Email:';
-  static const digiteEmail = 'Digite o email:';
+  static const typeEmail = 'Digite o email:';
   static const login = ' login';
 
   static const password = ' Senha';
@@ -25,11 +25,7 @@ class StringConstants{
   static const settings = 'configuraçoes';
   static const close = 'Sair';
   static const myAcount= 'Minha Conta';
-
-
-
-
-
+  static const notHaveRegistration = 'Nao tem Cadastro?';
 
 
 

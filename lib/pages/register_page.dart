@@ -4,7 +4,7 @@ import 'package:flutter_validation/widgets/button_widget.dart';
 import 'package:flutter_validation/widgets/my_custon_clipper_widget.dart';
 import 'package:flutter_validation/widgets/text_form_widget.dart';
 import 'package:flutter_validation/widgets/text_widget.dart';
-import '../constants/string_constants/error_constants.dart';
+import '../constants/error_constants/error_constants.dart';
 import '../controller/validate_fields.dart';
 import '../routes/routes.dart';
 import '../service/register_service.dart';
@@ -161,7 +161,7 @@ _mailField() {
     ),
     child: TextFormWidget(
       StringConstants.email,
-      StringConstants.digiteEmail,
+      StringConstants.typeEmail,
       const Icon(
         Icons.email,
         color: Colors.green,
