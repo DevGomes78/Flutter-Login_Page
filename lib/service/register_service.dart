@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../constants/service_constants/service_constants.dart';
 
-
 class RegisterLoginService {
   singUp(context,String name ,String lastname,String email, String password) async {
     http.Response response = await http.post(
@@ -19,8 +18,8 @@ class RegisterLoginService {
     );
     if(response.statusCode==200){
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Login Cadastrado com sucesso! '),
+         const SnackBar(
+          content: Text('Login Cadastrado com sucesso!'),
         ),
       );
     }else{

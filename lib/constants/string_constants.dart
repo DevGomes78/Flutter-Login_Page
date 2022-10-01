@@ -1,4 +1,4 @@
-class StringConstants{
+class StringConstants {
 
   static const email = 'Email:';
   static const typeEmail = 'Digite o email:';
@@ -20,14 +20,16 @@ class StringConstants{
   static const registerLastName = 'Digite o Sobrenome';
 
   static const registerLogin = 'Ja é cadastrado ?';
-  static const loginName= 'Fazer Login';
+  static const loginName = 'Fazer Login';
 
   static const settings = 'configuraçoes';
   static const close = 'Sair';
-  static const myAcount= 'Minha Conta';
+  static const myAcount = 'Minha Conta';
   static const notHaveRegistration = 'Nao tem Cadastro?';
-
-
-
+  static const registerSucess = 'Login Cadastrado com sucesso!';
 
 }
+
+
+
+

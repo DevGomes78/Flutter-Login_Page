@@ -57,6 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
               _textLogin(context),
               const SizedBox(height: 30),
               _registerLogin(context),
+              const SizedBox(height: 10),
             ],
           ),
         ),
