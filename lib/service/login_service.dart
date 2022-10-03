@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_validation/pages/bem_vindo.dart';
+import 'package:flutter_validation/constants/service_constants.dart';
 import 'package:http/http.dart' as http;
-import '../constants/service_constants/service_constants.dart';
-
+import '../constants/error_constants.dart';
 
 class LoginService {
   login(context, String email, String password) async {
@@ -18,14 +18,13 @@ class LoginService {
         ),
       );
       if (response.statusCode == 200) {
-       // Navigator.pushNamed(context, RoutesPage.bemVindo);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context)=>
-            BemVindo(email: email)));
+        // Navigator.pushNamed(context, RoutesPage.bemVindo);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => BemVindo(email: email)));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Usuario ou senha invalidos'),
+            content: Text(ErrorConstants.UserOrPasswordInvalid),
           ),
         );
       }

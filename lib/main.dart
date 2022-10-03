@@ -17,10 +17,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(brightness: Brightness.light),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.green,
+      ),
       home: const Splash(),
       routes: {
-      //  RoutesPage.bemVindo: (context) => BemVindo(),
+        //  RoutesPage.bemVindo: (context) => BemVindo(),
         RoutesPage.cadastro: (context) => RegisterPage(),
         RoutesPage.loginPage: (context) => Login(),
       },

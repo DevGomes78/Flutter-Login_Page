@@ -3,13 +3,11 @@ import '../constants/string_constants.dart';
 import '../pages/login_page.dart';
 
 class DrawerWidget extends StatelessWidget {
-
   String email;
 
   DrawerWidget({
-    Key? key,required
-    this.email,
-
+    Key? key,
+    required this.email,
   }) : super(key: key);
 
   @override
@@ -19,23 +17,27 @@ class DrawerWidget extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-           UserAccountsDrawerHeader(
+          UserAccountsDrawerHeader(
             accountEmail: Text(email),
-            accountName: const Text('Bem Vindo!'),
-            currentAccountPicture: const CircleAvatar(
+            accountName: const Text(StringConstants.wellcome),
+            currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
+              child: Text(
+                email[0].toUpperCase(),
+                style: const TextStyle(fontSize: 22),
+              ),
             ),
           ),
           ListTile(
             leading: const Icon(Icons.person),
-            title:  const Text(StringConstants.myAcount),
+            title: const Text(StringConstants.myAcount),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           const Divider(color: Colors.grey),
-           const ListTile(
-            leading: Icon(Icons.add),
+          const ListTile(
+            leading: Icon(Icons.settings),
             title: Text(StringConstants.settings),
           ),
           const Divider(color: Colors.grey),

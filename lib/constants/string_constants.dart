@@ -27,6 +27,7 @@ class StringConstants {
   static const myAcount = 'Minha Conta';
   static const notHaveRegistration = 'Nao tem Cadastro?';
   static const registerSucess = 'Login Cadastrado com sucesso!';
+  static const wellcome = 'Bem Vindo!';
 
 }
 

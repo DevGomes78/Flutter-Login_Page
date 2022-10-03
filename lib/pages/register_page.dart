@@ -16,14 +16,11 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool _obscureText = true;
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
-
   final TextEditingController _mailController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
-  TextEditingController();
+      TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -41,9 +38,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    _nameField(),
-                    const SizedBox(height: 10),
-                    _lastNameField(),
                     const SizedBox(height: 10),
                     _mailField(),
                     const SizedBox(height: 10),
@@ -72,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
           _register();
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-             const SnackBar(
+            const SnackBar(
               content: Text(ErrorConstants.senhaNaoConfere),
             ),
           );
@@ -88,166 +82,123 @@ class _RegisterPageState extends State<RegisterPage> {
     if (_formKey.currentState!.validate()) {
       RegisterLoginService().singUp(
         context,
-        _nameController.text,
-        _lastNameController.text,
         _mailController.text,
         _passwordController.text,
       );
     }
-    _nameController.clear();
-    _lastNameController.clear();
+
     _mailController.clear();
     _passwordController.clear();
     _confirmPasswordController.clear();
   }
 
-
-_textLogin(BuildContext context) {
-  return InkWell(
-    onTap: () {
-      Navigator.pushNamed(context, RoutesPage.loginPage);
-    },
-    child: Textwidget(
-      cadastro: StringConstants.registerLogin,
-      login: StringConstants.loginName,
-    ),
-  );
-}
-
-_nameField() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(50),
-      color: Colors.grey[200],
-    ),
-    child: TextFormWidget(
-      StringConstants.name,
-      StringConstants.registerName,
-      const Icon(
-        Icons.person_add,
-        color: Colors.green,
+  _textLogin(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, RoutesPage.loginPage);
+      },
+      child: Textwidget(
+        cadastro: StringConstants.registerLogin,
+        login: StringConstants.loginName,
       ),
-      controller: _nameController,
-      obscureText: false,
-      validator: Validate().validateLastName,
-    ),
-  );
-}
+    );
+  }
 
-_lastNameField() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(50),
-      color: Colors.grey[200],
-    ),
-    child: TextFormWidget(
-      StringConstants.lastName,
-      StringConstants.registerLastName,
-      const Icon(
-        Icons.person_add,
-        color: Colors.green,
+  _mailField() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
       ),
-      controller: _lastNameController,
-      obscureText: false,
-      validator: Validate().validateName,
-    ),
-  );
-}
-
-_mailField() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(50),
-      color: Colors.grey[200],
-    ),
-    child: TextFormWidget(
-      StringConstants.email,
-      StringConstants.typeEmail,
-      const Icon(
-        Icons.email,
-        color: Colors.green,
-      ),
-      controller: _mailController,
-      obscureText: false,
-      validator: Validate().validateEmail,
-    ),
-  );
-}
-
-_passwordField() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(50),
-      color: Colors.grey[200],
-    ),
-    child: TextFormWidget(
-      StringConstants.password,
-      StringConstants.registerPassword,
-      const Icon(
-        Icons.vpn_key,
-        color: Colors.green,
-      ),
-      sulfixIcon: GestureDetector(
-        onTap: () {
-          setState(() {
-            _obscureText = !_obscureText;
-          });
-        },
-        child: Icon(
-          _obscureText ? Icons.visibility : Icons.visibility_off,
+      child: TextFormWidget(
+        StringConstants.email,
+        StringConstants.typeEmail,
+        const Icon(
+          Icons.email,
+          color: Colors.green,
         ),
+        controller: _mailController,
+        obscureText: false,
+        validator: Validate().validateEmail,
       ),
-      controller: _passwordController,
-      obscureText: _obscureText,
-      validator: Validate().validatePassword,
-    ),
-  );
-}
+    );
+  }
 
-_confirmPasswordField() {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(50),
-      color: Colors.grey[200],
-    ),
-    child: TextFormWidget(
-      StringConstants.confirmPassword,
-      StringConstants.confirmPassword,
-      const Icon(
-        Icons.vpn_key,
-        color: Colors.green,
+  _passwordField() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
       ),
-      sulfixIcon: GestureDetector(
-        onTap: () {
-          setState(() {
-            _obscureText = !_obscureText;
-          });
-        },
-        child: Icon(
-          _obscureText ? Icons.visibility : Icons.visibility_off,
+      child: TextFormWidget(
+        StringConstants.password,
+        StringConstants.registerPassword,
+        const Icon(
+          Icons.vpn_key,
+          color: Colors.green,
         ),
+        sulfixIcon: GestureDetector(
+          onTap: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
+          child: Icon(
+            _obscureText ? Icons.visibility : Icons.visibility_off,
+          ),
+        ),
+        controller: _passwordController,
+        obscureText: _obscureText,
+        validator: Validate().validatePassword,
       ),
-      controller: _confirmPasswordController,
-      obscureText: _obscureText,
-      validator: Validate().validatePassword,
-    ),
-  );
-}
+    );
+  }
 
-_custonClipper() {
-  return ClipPath(
-    child: Container(
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(90),
-        ),
-        gradient: LinearGradient(
-            colors: [(Colors.green), (Colors.black)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter),
+  _confirmPasswordField() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        color: Colors.grey[200],
       ),
-      height: 180,
-    ),
-    clipper: MycustonClipper(),
-  );
-}}
+      child: TextFormWidget(
+        StringConstants.confirmPassword,
+        StringConstants.confirmPassword,
+        const Icon(
+          Icons.vpn_key,
+          color: Colors.green,
+        ),
+        sulfixIcon: GestureDetector(
+          onTap: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
+          child: Icon(
+            _obscureText ? Icons.visibility : Icons.visibility_off,
+          ),
+        ),
+        controller: _confirmPasswordController,
+        obscureText: _obscureText,
+        validator: Validate().validatePassword,
+      ),
+    );
+  }
+
+  _custonClipper() {
+    return ClipPath(
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(90),
+          ),
+          gradient: LinearGradient(
+              colors: [(Colors.green), (Colors.black)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter),
+        ),
+        height: 180,
+      ),
+      clipper: MycustonClipper(),
+    );
+  }
+}
