@@ -34,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text(StringConstants.cancelar),
+                child: const Text(StringConstants.cancel),
               ),
               OutlinedButton(
                 onPressed: () => Navigator.pop(context, true),
