@@ -24,6 +24,8 @@ class StringConstants {
 
   static const settings = 'configuraçoes';
   static const close = 'Sair';
+  static const cancelar = 'Cancelar';
+  static const desejaSair = ' Deseja sair?';
   static const myAcount = 'Minha Conta';
   static const notHaveRegistration = 'Nao tem Cadastro?';
   static const registerSucess = 'Login Cadastrado com sucesso!';

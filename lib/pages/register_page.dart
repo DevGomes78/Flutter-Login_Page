@@ -23,36 +23,66 @@ class _RegisterPageState extends State<RegisterPage> {
       TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  bool saved = false;
+
+  Future<bool?> showConfirmationDialog() {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text(StringConstants.desejaSair),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text(StringConstants.cancelar),
+              ),
+              OutlinedButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text(StringConstants.close),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              _custonClipper(),
-              const SizedBox(height: 50),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    _mailField(),
-                    const SizedBox(height: 10),
-                    _passwordField(),
-                    const SizedBox(height: 10),
-                    _confirmPasswordField(),
-                  ],
+    return WillPopScope(
+      onWillPop: () async {
+        if (!saved) {
+          final confirmation = await showConfirmationDialog();
+          return confirmation ?? false;
+        }
+        return true;
+      },
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                _custonClipper(),
+                const SizedBox(height: 50),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      _mailField(),
+                      const SizedBox(height: 10),
+                      _passwordField(),
+                      const SizedBox(height: 10),
+                      _confirmPasswordField(),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              _textLogin(context),
-              const SizedBox(height: 30),
-              _registerLogin(context),
-              const SizedBox(height: 10),
-            ],
+                const SizedBox(height: 10),
+                _textLogin(context),
+                const SizedBox(height: 30),
+                _registerLogin(context),
+                const SizedBox(height: 10),
+              ],
+            ),
           ),
         ),
       ),
