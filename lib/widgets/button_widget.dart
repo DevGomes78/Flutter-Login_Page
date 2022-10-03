@@ -22,7 +22,7 @@ class ButtonWidget extends StatelessWidget {
         ),
         child: Text(
           text!,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),

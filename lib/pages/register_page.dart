@@ -64,6 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
       onTap: () {
         if (_passwordController.text == _confirmPasswordController.text) {
           _register();
+          Navigator.pushNamed(context, RoutesPage.loginPage);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(

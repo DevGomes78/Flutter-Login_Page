@@ -39,7 +39,7 @@ class _SplashState extends State<Splash> {
           ),
         ),
         Center(
-          child: Container(
+          child: SizedBox(
             height: 150,
             child: Image.asset('images/frog.png'),
           ),

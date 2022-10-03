@@ -101,6 +101,7 @@ class _LoginState extends State<Login> {
           StringConstants.forgoLogin,
           style: TextStyle(
             fontWeight: FontWeight.bold,
+            color: Colors.green,
           ),
         ),
         onTap: () {
