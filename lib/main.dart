@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
        brightness: Brightness.light,
         primarySwatch: Colors.green,
       ),
-      home: const Splash(),
+      home:  SplashScreen(),
       routes: {
         //  RoutesPage.bemVindo: (context) => BemVindo(),
         RoutesPage.cadastro: (context) => RegisterPage(),

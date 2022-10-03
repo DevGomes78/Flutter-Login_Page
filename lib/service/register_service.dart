@@ -18,13 +18,13 @@ class RegisterLoginService {
     );
     if (response.statusCode == 200) {
       ScaffoldMessenger.of(context).showSnackBar(
-         const SnackBar(
+        const SnackBar(
           content: Text(StringConstants.registerSucess),
         ),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-         const SnackBar(
+        const SnackBar(
           content: Text(ErrorConstants.errorRegister),
         ),
       );

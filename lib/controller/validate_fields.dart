@@ -1,6 +1,6 @@
-class Validate{
+class Validate {
   String? validateName(String? value) {
-    if (value!.isEmpty)  {
+    if (value!.isEmpty) {
       return 'Campo em Branco';
     } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
       return 'Somente Letras';
@@ -10,8 +10,9 @@ class Validate{
       return null;
     }
   }
+
   String? validateLastName(String? value) {
-    if (value!.isEmpty)  {
+    if (value!.isEmpty) {
       return 'Campo em Branco';
     } else if (!RegExp(r'^[a-z-A-Z]+$').hasMatch(value)) {
       return 'Somente Letras';
@@ -21,8 +22,9 @@ class Validate{
       return null;
     }
   }
+
   String? validatePhone(String? value) {
-    if (value!.isEmpty)  {
+    if (value!.isEmpty) {
       return 'Campo em Branco';
     } else if (value.trim().length < 11) {
       return 'Informe Número com DDD';
@@ -30,8 +32,9 @@ class Validate{
       return null;
     }
   }
+
   String? validateEmail(String? value) {
-    if (value!.isEmpty)  {
+    if (value!.isEmpty) {
       return 'Campo em Branco';
     } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}').hasMatch(value)) {
       return 'email Invalido';
